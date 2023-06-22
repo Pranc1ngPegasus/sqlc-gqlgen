@@ -1,0 +1,23 @@
+type Organization {
+  id: ID!
+  createdAt: Time!
+  updatedAt: Time!
+  name: String!
+}
+
+input SignupInput {
+  orgName: String!
+  userName: String!
+}
+
+type SignupPayload {
+  ok: Boolean!
+}
+
+extend type Mutation {
+  signup(input: SignupInput!): SignupPayload
+}
+
+extend type Query {
+  organizations: [Organization!]!
+}
